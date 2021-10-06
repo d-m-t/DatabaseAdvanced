@@ -15,9 +15,9 @@ def scraper():
     listoftransactions = []
 
     for i in transactions:
-        # if it needs to be bases of USD then just add $ to re search and make that index a float
-        row = re.split('Hash|\(BTC\)| BTCAmount|Time|Amount|\(USD\)', i.text)
+        row = re.split('Hash|\(BTC\)| BTCAmount|Time|Amount|\(USD\)\$', i.text)
         row[4] = float(row[4])
+        row[6] = float(row[6].replace(',', ''))
         finalrow = [row[1], row[2], row[4], row[6]]
         listoftransactions.append(finalrow)
 
