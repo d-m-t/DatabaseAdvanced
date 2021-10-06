@@ -16,9 +16,11 @@ def scraper():
 
     for i in transactions:
         row = re.split('Hash|\(BTC\)| BTCAmount|Time|Amount|\(USD\)\$', i.text)
-        row[4] = float(row[4])
-        row[6] = float(row[6].replace(',', ''))
-        finalrow = [row[1], row[2], row[4], row[6]]
+        Hash=row[1]
+        Time=row[2]
+        BTC = float(row[4])
+        USD = float(row[6].replace(',', ''))
+        finalrow = [Hash,Time,BTC,USD]
         listoftransactions.append(finalrow)
 
     listoftransactions.sort(key=lambda x: x[2], reverse=True)
