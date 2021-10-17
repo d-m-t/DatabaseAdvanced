@@ -1,4 +1,5 @@
 Installation:
+Ubuntu 20.04.3
 Virtual Box extensions 6.1.26r145957
 1400MB Ram
 15GB Hard Disk
@@ -9,6 +10,7 @@ Python Packages(along with python3):
 bs4
 requests
 re
+pymongo
 
 Scraper:
 -creating a method to scrape
@@ -25,3 +27,15 @@ Scraper:
 -Appends the highest BTC hash info to the file named "MVH.txt"
 -program sleeps for 60 seconds
 -Does it all again on a loop until the user closes out the program
+
+
+Mongo Install:
+Mongo v5.0.3
+port:27017
+
+Start:sudo systemctl start mongod / mongosh
+verify statuts: sudo systemctl status mongod
+stop:sudo systemctl stop mongod
+
+Scraper now scrapes the data and inserts it into the Bitcoin database under the collection Top Transactions.
+The Id is the Hash number.
